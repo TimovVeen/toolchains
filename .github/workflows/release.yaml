@@ -17,21 +17,13 @@ jobs:
         run: git lfs pull
 
       - name: Upload arm64 script
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        uses: actions/upload-artifact@v3
         with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./arm-crosschain-arm64.sh
-          asset_name: arm-crosschain-arm64.sh
-          asset_content_type: text/x-shellscript
+          path: ./arm-crosschain-arm64.sh
+          name: arm-crosschain-arm64.sh
 
       - name: Upload amd64 script
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        uses: actions/upload-artifact@v3
         with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./arm-crosschain-amd64.sh
-          asset_name: arm-crosschain-amd64.sh
-          asset_content_type: text/x-shellscript
+          path: ./arm-crosschain-amd64.sh
+          name: arm-crosschain-amd64.sh
